@@ -67,6 +67,20 @@ function onMouseMove(mouseEvent) {
 		configuration = { "layerX": reduce(mouseEvent.layerX), "layerY": reduce(mouseEvent.layerY) };
 }
 
+function onTouchEnd() {
+	mouseClicked = false;
+}
+
+function onTouchStart(touchEvent) {
+	mouseClicked = true;
+	configuration = { "layerX": reduce(touchEvent.touches[0].clientX), "layerY": reduce(touchEvent.touches[0].clientY) };
+}
+
+function onTouchMove(touchEvent) {
+	if (mouseClicked)
+		configuration = { "layerX": reduce(touchEvent.touches[0].clientX), "layerY": reduce(touchEvent.touches[0].clientY) };
+}
+
 initializeSpirals();
 addEventListeners();
 setInterval(drawSpirals, 30);
