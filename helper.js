@@ -12,9 +12,12 @@ window.onresize = function (e) {
 };
 
 function addEventListeners() {
+	document.addEventListener("mouseup", onMouseUp, false);
 	document.addEventListener("mousedown", onMouseDown, false);
 	document.addEventListener("mousemove", onMouseMove, false);
-	document.addEventListener("mouseup", onMouseUp, false);
+	document.addEventListener("touchstart", onTouchStart, false);
+	document.addEventListener("touchend", onTouchEnd, false);
+	document.addEventListener("touchmove", onTouchMove, false);
 	document.addEventListener("keyup", onKeyUp, false);
 }
 
